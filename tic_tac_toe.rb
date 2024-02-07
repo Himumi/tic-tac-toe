@@ -49,9 +49,13 @@ class Game
       return value_1 == value_2 && value_2 == value_3 
     end
   end
-  
+
   def is_full
     @@board.all? { |item| item.class == String }
+  end
+
+  def draw
+    !won && is_full
   end
 end
 
