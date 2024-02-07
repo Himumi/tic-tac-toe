@@ -1,6 +1,15 @@
 class Game
   @@board = [1,2,3,4,5,6,7,8,9]
-  @@WIN_COMBINATION = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+  @@WIN_COMBINATIONS = [ 
+    [0,1,2], # top_row 
+    [3,4,5], # middle_row 
+    [6,7,8], # bottom_row 
+    [0,3,6], # left_column 
+    [1,4,7], # center_column 
+    [2,5,8], # right_column 
+    [0,4,8], # left_diagonal 
+    [6,4,2] # right_diagonal 
+    ]
   @@first_player = "X"
   @@last_player = "O"
   @@winner
@@ -32,6 +41,7 @@ class Game
   end
 
   def get_input
+  puts "Please enter number between 1 - 9"
   index = gets.chomp.to_i - 1
   until valid_input(index) && !is_taken(index)
     puts "You Input wrong value. You have to input between 1 - 9."
@@ -41,7 +51,7 @@ class Game
   end
 
   def is_won
-    @@WIN_COMBINATION.each do |item|
+    @@WIN_COMBINATIONS.each do |item|
       value_1 = @@board[item[0]]
       value_2 = @@board[item[1]]
       value_3 = @@board[item[2]]
@@ -65,13 +75,26 @@ class Game
   def message
     is_won ? "The winner is #{@@winner}! Congratulations!!!" : "Game over!!!"
   end
+
+  def play
+    count = 1
+    until is_over
+      index = get_input
+      add_to_display(index, current_player(count))
+      display
+      count += 1
+    end
+     message
+  end
 end
 
+puts "Tic Tac Toe Game"
+puts "1 | 2 | 3"
+puts "---------"
+puts "4 | 5 | 6"
+puts "---------"
+puts "7 | 8 | 9"
 game = Game.new
-game.add_to_display(0, "X")
-game.add_to_display(1, "X")
-game.add_to_display(2, "X")
 game.display
-
-p game.message
+p game.play
 
