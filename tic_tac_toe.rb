@@ -1,15 +1,7 @@
 class Game
   @@board = [1,2,3,4,5,6,7,8,9]
-  @@WIN_COMBINATIONS = [ 
-    [0,1,2], # top_row 
-    [3,4,5], # middle_row 
-    [6,7,8], # bottom_row 
-    [0,3,6], # left_column 
-    [1,4,7], # center_column 
-    [2,5,8], # right_column 
-    [0,4,8], # left_diagonal 
-    [6,4,2] # right_diagonal 
-    ]
+  # @@board = ["X","O","X","O","O","X", "X", "X", "O"]
+  @@win_combinations = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [3, 5, 8], [0, 4, 8], [2, 4, 6]]
   @@first_player = "X"
   @@last_player = "O"
   @@winner
@@ -51,17 +43,24 @@ class Game
   end
 
   def is_won
-    @@WIN_COMBINATIONS.each do |item|
+    # @@win_combinations.any? do |item|
+    #   item.all? do |i| 
+    #   @@winner = @@board[i]
+    #   @@board[i] == @@first_player || @@board[i] == @@last_player
+    #   end
+    # end
+
+    @@win_combinations.any? do |item|
       value_1 = @@board[item[0]]
       value_2 = @@board[item[1]]
       value_3 = @@board[item[2]]
-      @@winner = value_1
-      return value_1 == value_2 && value_2 == value_3 
+      @@winner = @@board[item[0]]
+      value_1 == value_2 and value_2 == value_3
     end
   end
 
   def is_full
-    @@board.all? { |item| item.class == String }
+    @@board.all? { |item| item.class != Integer }
   end
 
   def is_draw
@@ -69,7 +68,7 @@ class Game
   end
 
   def is_over
-    is_won || is_draw
+    is_won || is_full
   end
 
   def message
@@ -84,7 +83,7 @@ class Game
       display
       count += 1
     end
-     message
+     puts message
   end
 end
 
@@ -95,6 +94,5 @@ puts "4 | 5 | 6"
 puts "---------"
 puts "7 | 8 | 9"
 game = Game.new
-game.display
-p game.play
+puts game.play
 
