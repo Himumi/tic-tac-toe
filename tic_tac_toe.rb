@@ -28,6 +28,15 @@ class Game
   def valid_input(input)
     (0..8).include?(input)
   end
+
+  def get_input
+  index = gets.chomp.to_i - 1
+  until valid_input(index) && !is_taken(index)
+    puts "You Input wrong value. You have to input between 1 - 9."
+    index = gets.chomp.to_i - 1
+  end
+  index
+  end
 end
 
 game = Game.new
@@ -38,3 +47,4 @@ game.display
 puts game.current_player(2)
 puts game.is_taken(0)
 puts game.valid_input(0)
+puts game.get_input
