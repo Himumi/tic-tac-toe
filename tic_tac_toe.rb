@@ -61,6 +61,10 @@ class Game
   def is_over
     is_won || is_draw
   end
+
+  def message
+    is_won ? "The winner is #{@@winner}! Congratulations!!!" : "Game over!!!"
+  end
 end
 
 game = Game.new
@@ -69,5 +73,5 @@ game.add_to_display(1, "X")
 game.add_to_display(2, "X")
 game.display
 
-p game.is_draw
+p game.message
 
