@@ -49,7 +49,10 @@ class Game
       return value_1 == value_2 && value_2 == value_3 
     end
   end
-
+  
+  def is_full
+    @@board.all? { |item| item.class == String }
+  end
 end
 
 game = Game.new
@@ -58,4 +61,4 @@ game.add_to_display(1, "X")
 game.add_to_display(2, "X")
 game.display
 
-p game.is_won
+p game.is_full
