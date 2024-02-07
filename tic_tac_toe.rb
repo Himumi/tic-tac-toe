@@ -18,6 +18,12 @@ class Game
   def current_player(count)
     count.odd? ? @@first_player : @@last_player
   end
+
+  def is_taken(index)
+    # ask type of date in @@board[index]
+    @@board[index].is_a? String
+    # @@board[index].class == String
+  end
 end
 
 game = Game.new
@@ -26,3 +32,4 @@ game.add_to_display(0, "X")
 game.display
 
 puts game.current_player(2)
+puts game.is_taken(0)
