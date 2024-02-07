@@ -1,6 +1,6 @@
 class Game
   @@board = [1,2,3,4,5,6,7,8,9]
-  @@fist_player = "X"
+  @@first_player = "X"
   @@last_player = "O"
 
   def display
@@ -14,9 +14,15 @@ class Game
   def add_to_display(index, player)
     @@board[index] = player
   end
+
+  def current_player(count)
+    count.odd? ? @@first_player : @@last_player
+  end
 end
 
 game = Game.new
 game.display
 game.add_to_display(0, "X")
 game.display
+
+puts game.current_player(2)
