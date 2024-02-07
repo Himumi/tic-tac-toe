@@ -54,8 +54,12 @@ class Game
     @@board.all? { |item| item.class == String }
   end
 
-  def draw
-    !won && is_full
+  def is_draw
+    !is_won && is_full
+  end
+
+  def is_over
+    is_won || is_draw
   end
 end
 
@@ -65,4 +69,5 @@ game.add_to_display(1, "X")
 game.add_to_display(2, "X")
 game.display
 
-p game.is_full
+p game.is_draw
+
