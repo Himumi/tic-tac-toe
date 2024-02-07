@@ -68,7 +68,7 @@ class Game
   end
 
   def is_over
-    is_won || is_full
+    is_won || is_draw
   end
 
   def message
