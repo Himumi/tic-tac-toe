@@ -24,6 +24,10 @@ class Game
     @@board[index].is_a? String
     # @@board[index].class == String
   end
+
+  def valid_input(input)
+    (0..8).include?(input)
+  end
 end
 
 game = Game.new
@@ -33,3 +37,4 @@ game.display
 
 puts game.current_player(2)
 puts game.is_taken(0)
+puts game.valid_input(0)
