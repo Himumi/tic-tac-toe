@@ -1,7 +1,9 @@
 class Game
   @@board = [1,2,3,4,5,6,7,8,9]
+  @@WIN_COMBINATION = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
   @@first_player = "X"
   @@last_player = "O"
+  @@winner
 
   def display
     puts "#{@@board[0]} | #{@@board[1]} | #{@@board[2]}"
@@ -21,8 +23,8 @@ class Game
 
   def is_taken(index)
     # ask type of date in @@board[index]
-    @@board[index].is_a? String
-    # @@board[index].class == String
+    # @@board[index].is_a? String
+    @@board[index].class == String
   end
 
   def valid_input(input)
@@ -37,14 +39,23 @@ class Game
   end
   index
   end
+
+  def is_won
+    @@WIN_COMBINATION.each do |item|
+      value_1 = @@board[item[0]]
+      value_2 = @@board[item[1]]
+      value_3 = @@board[item[2]]
+      @@winner = value_1
+      return value_1 == value_2 && value_2 == value_3 
+    end
+  end
+
 end
 
 game = Game.new
-game.display
 game.add_to_display(0, "X")
+game.add_to_display(1, "X")
+game.add_to_display(2, "X")
 game.display
 
-puts game.current_player(2)
-puts game.is_taken(0)
-puts game.valid_input(0)
-puts game.get_input
+p game.is_won
