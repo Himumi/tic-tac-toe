@@ -65,12 +65,12 @@ class Game
     @board.all? { |item| item.class != Integer }
   end
 
-  def is_draw
+  def draw?
     !won? && full?
   end
 
   def is_over
-    won? || is_draw
+    won? || draw?
   end
 
   def message
