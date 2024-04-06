@@ -8,6 +8,19 @@ class Game
     @last_player = "O"
   end
 
+    def play
+    count = 1
+    puts "Tic Tac Toe Game"
+    display
+    loop do
+      index = get_input
+      add_to_display(index, current_player(count))
+      display
+      return message if over?
+      count += 1
+    end
+  end
+
   def display
     display = ""
     @board.each_with_index do |item, index|
@@ -73,19 +86,6 @@ class Game
 
   def message
     won? ? "The winner is #{@winner}! Congratulations!!!" : "Game over!!!"
-  end
-
-  def play
-    count = 1
-    puts "Tic Tac Toe Game"
-    display
-    loop do
-      index = get_input
-      add_to_display(index, current_player(count))
-      display
-      return message if over?
-      count += 1
-    end
   end
 end
 
