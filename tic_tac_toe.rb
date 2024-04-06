@@ -69,7 +69,7 @@ class Game
     !won? && full?
   end
 
-  def is_over
+  def over?
     won? || draw?
   end
 
@@ -84,7 +84,7 @@ class Game
     loop do
       index = get_input
       add_to_display(index, current_player(count))
-      return message if is_over
+      return message if over?
       display
       count += 1
     end
