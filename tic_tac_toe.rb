@@ -36,13 +36,12 @@ class Game
   end
 
   def get_input
-  puts "Please enter number between 1 - 9"
-  index = gets.chomp.to_i - 1
-  until valid_input(index) && !is_taken(index)
-    puts "You Input wrong value. You have to input between 1 - 9."
-    index = gets.chomp.to_i - 1
-  end
-  index
+    puts "Please enter number between 1 - 9"
+    loop do
+      index = gets.chomp.to_i - 1
+      return index if valid_input(index) && !is_taken(index)
+      puts "You Input wrong value. You have to input between 1 - 9."
+    end
   end
 
   def is_won
