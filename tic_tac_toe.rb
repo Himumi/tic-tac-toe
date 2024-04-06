@@ -9,11 +9,12 @@ class Game
   end
 
   def display
-    puts "#{@board[0]} | #{@board[1]} | #{@board[2]}"
-    puts "---------"
-    puts "#{@board[3]} | #{@board[4]} | #{@board[5]}"
-    puts "---------"
-    puts "#{@board[6]} | #{@board[7]} | #{@board[8]}"
+    display = ""
+    @board.each_with_index do |item, index|
+      index%3 == 0 ? display +=  "\n---------\n" + "#{item}" : display += " | #{item}"
+    end
+    display += "\n---------\n"
+    puts display
   end
 
   def add_to_display(index, player)
