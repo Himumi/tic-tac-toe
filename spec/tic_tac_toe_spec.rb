@@ -11,5 +11,13 @@ describe Game do
         expect(check_value).to be true
       end
     end
+
+    context 'when user inputs invalid value' do
+      it 'returns false' do
+        value = 'a'
+        check_value = game.valid_input(value)
+        expect(check_value).not_to be true
+      end
+    end
   end
 end
