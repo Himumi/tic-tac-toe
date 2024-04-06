@@ -44,7 +44,7 @@ class Game
     end
   end
 
-  def is_won
+  def won?
     # @@win_combinations.any? do |item|
     #   item.all? do |i|
     #   @@winner = @@board[i]
@@ -66,15 +66,15 @@ class Game
   end
 
   def is_draw
-    !is_won && is_full
+    !won? && is_full
   end
 
   def is_over
-    is_won || is_draw
+    won? || is_draw
   end
 
   def message
-    is_won ? "The winner is #{@winner}! Congratulations!!!" : "Game over!!!"
+    won? ? "The winner is #{@winner}! Congratulations!!!" : "Game over!!!"
   end
 
   def play
