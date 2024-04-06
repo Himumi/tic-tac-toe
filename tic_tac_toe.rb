@@ -38,7 +38,7 @@ class Game
     count.odd? ? @first_player : @last_player
   end
 
-  def is_taken(index)
+  def taken?(index)
     # ask type of date in @@board[index]
     # @@board[index].is_a? String
     @board[index].class == String
@@ -52,7 +52,7 @@ class Game
     puts "Please enter number between 1 - 9"
     loop do
       index = gets.chomp.to_i - 1
-      return index if valid_input(index) && !is_taken(index)
+      return index if valid_input(index) && !taken?(index)
       puts "You Input wrong value. You have to input between 1 - 9."
     end
   end
