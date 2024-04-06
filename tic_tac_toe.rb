@@ -53,9 +53,7 @@ class Game
     # end
 
     @win_combinations.any? do |item|
-      value_1 = @board[item[0]]
-      value_2 = @board[item[1]]
-      value_3 = @board[item[2]]
+      value_1, value_2, value_3 = @board[item[0]], @board[item[1]], @board[item[2]]
       @winner = @board[item[0]]
       value_1 == value_2 and value_2 == value_3
     end
