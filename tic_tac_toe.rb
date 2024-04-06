@@ -79,6 +79,8 @@ class Game
 
   def play
     count = 1
+    puts "Tic Tac Toe Game"
+    display
     loop do
       index = get_input
       add_to_display(index, current_player(count))
@@ -89,11 +91,5 @@ class Game
   end
 end
 
-puts "Tic Tac Toe Game"
-puts "1 | 2 | 3"
-puts "---------"
-puts "4 | 5 | 6"
-puts "---------"
-puts "7 | 8 | 9"
 game = Game.new
 puts game.play
