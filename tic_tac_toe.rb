@@ -84,8 +84,8 @@ class Game
     loop do
       index = get_input
       add_to_display(index, current_player(count))
-      return message if over?
       display
+      return message if over?
       count += 1
     end
   end
