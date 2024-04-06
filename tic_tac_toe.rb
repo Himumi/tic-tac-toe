@@ -79,13 +79,13 @@ class Game
 
   def play
     count = 1
-    until is_over
+    loop do
       index = get_input
       add_to_display(index, current_player(count))
+      return message if is_over
       display
       count += 1
     end
-    puts message
   end
 end
 
