@@ -178,6 +178,14 @@ describe Game do
         expect(game).to be_over
       end
     end
-  end
 
+    context 'when conditions are not met' do
+      it 'returns false' do
+        allow(game).to receive(:won?).and_return(false)
+        allow(game).to receive(:draw?).and_return(false)
+
+        expect(game).not_to be_over
+      end
+    end
+  end
 end
