@@ -86,4 +86,18 @@ describe Game do
       end
     end
   end
+
+  describe '#taken?' do
+    context 'when position is taken' do
+      before do
+        player_mark = 'x'
+        position = 5
+        game.add_to_display(position, player_mark)
+      end
+
+      it 'returns true' do
+        expect(game).to be_taken(5)
+      end
+    end
+  end
 end
