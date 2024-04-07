@@ -165,4 +165,13 @@ describe Game do
       end
     end
   end
+
+  describe '#over?' do
+    context 'when conditions are met' do
+      it 'returns true when won condition is full' do
+        allow(game).to receive(:won?).and_return(true)
+        expect(game).to be_over
+      end
+  end
+
 end
