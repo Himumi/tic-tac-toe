@@ -172,6 +172,12 @@ describe Game do
         allow(game).to receive(:won?).and_return(true)
         expect(game).to be_over
       end
+
+      it 'returns true when draw condition is full' do
+        allow(game).to receive(:draw?).and_return(true)
+        expect(game).to be_over
+      end
+    end
   end
 
 end
