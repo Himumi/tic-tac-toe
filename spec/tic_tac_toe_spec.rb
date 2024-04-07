@@ -99,5 +99,11 @@ describe Game do
         expect(game).to be_taken(5)
       end
     end
+
+    context 'when position is not taken' do
+      it 'returns false' do
+        expect(game).not_to be_taken(5)
+      end
+    end
   end
 end
