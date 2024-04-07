@@ -76,5 +76,14 @@ describe Game do
         expect(result).to eq(first_player)
       end
     end
+
+    context 'when current count is even' do
+      it 'returns last player mark' do
+        last_player = game.instance_variable_get(:@last_player)
+        count = 6
+        result = game.current_player(count)
+        expect(result).to eq(last_player)
+      end
+    end
   end
 end
