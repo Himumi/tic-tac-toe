@@ -135,5 +135,11 @@ describe Game do
         expect(game).to be_full
       end
     end
+
+    context 'when board is not full' do
+      it 'returns false' do
+        expect(game).not_to be_full
+      end
+    end
   end
 end
