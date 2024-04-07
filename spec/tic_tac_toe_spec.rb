@@ -48,5 +48,22 @@ describe Game do
         game.get_input
       end
     end
+
+  end
+
+  describe '#add_to_display' do
+    context 'when adds player mark into board' do
+      let(:position) { 5 }
+      let(:player_mark) { 'x' }
+      before do
+        game.add_to_display(position, player_mark)
+      end
+
+      it 'adds into board' do
+        board = game.instance_variable_get(:@board)
+        inputed_position = board[position]
+        expect(inputed_position).to eq(player_mark)
+      end
+    end
   end
 end
