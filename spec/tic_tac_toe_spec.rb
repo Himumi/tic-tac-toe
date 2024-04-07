@@ -19,6 +19,16 @@ describe Game do
         game.turn_player
       end
     end
+
+    context 'when game is not over' do
+      before do
+        allow(game).to receive(:puts).and_return("Please enter number between 1 - 9")
+        allow(game).to receive(:gets).and_return("5")
+      end
+      it 'does loop again' do
+        expect(game).not_to receive(:message)
+      end
+    end
   end
 
   describe '#valid_input' do
