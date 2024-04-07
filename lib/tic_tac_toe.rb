@@ -12,6 +12,7 @@ class Game
     count = 1
     puts "Tic Tac Toe Game"
     display
+    puts "Please enter number between 1 - 9"
     loop do
       index = get_input
       add_to_display(index, current_player(count))
@@ -49,7 +50,6 @@ class Game
   end
 
   def get_input
-    puts "Please enter number between 1 - 9"
     loop do
       index = gets.chomp.to_i - 1
       return index if valid_input(index) && !taken?(index)
@@ -90,4 +90,4 @@ class Game
 end
 
 # game = Game.new
-# puts game.play
+# game.play
