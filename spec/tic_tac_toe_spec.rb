@@ -144,7 +144,7 @@ describe Game do
   end
 
   describe '#draw' do
-    context 'when conditions are met' do
+    context 'when board full without winner' do
       before do
         allow(game).to receive(:won?).and_return(false)
         allow(game).to receive(:full?).and_return(true)
@@ -155,7 +155,7 @@ describe Game do
       end
     end
 
-    context 'when conditions are not met' do
+    context 'when user won' do
       before do
         allow(game).to receive(:won?).and_return(true) # when won condition is met
       end
