@@ -6,6 +6,21 @@ describe Game do
   describe '#play' do
     # do not need to be test
   end
+
+  describe '#turn_player' do
+    context 'when over condition is met' do
+      before do
+        allow(game).to receive(:puts).and_return("Please enter number between 1 - 9")
+        allow(game).to receive(:gets).and_return("5")
+        allow(game).to receive(:over?).and_return(true)
+      end
+      it 'stops loop and call message method' do
+        expect(game).to receive(:message)
+        game.turn_player
+      end
+    end
+  end
+
   describe '#valid_input' do
     context 'when user inputs valid value' do
       it 'returns true' do
