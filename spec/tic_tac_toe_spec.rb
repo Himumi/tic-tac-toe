@@ -106,4 +106,16 @@ describe Game do
       end
     end
   end
+
+  describe '#won?' do
+    context 'when condition is met' do
+      before do
+        board = game.instance_variable_get(:@board)
+        3.times { |i| board[i] = 'x' } # inputs player mark into board
+      end
+      it 'returns true' do
+        expect(game).to be_won
+      end
+    end
+  end
 end
