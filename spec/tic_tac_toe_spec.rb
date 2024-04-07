@@ -20,4 +20,19 @@ describe Game do
       end
     end
   end
+
+  describe '#get_input' do
+    context 'when user inputs valid value' do
+      before do
+        valid_value = "5"
+        allow(game).to receive(:gets).and_return(valid_value)
+      end
+
+      it 'stops loop and return input' do
+        error_message = "You Input wrong value. You have to input between 1 - 9."
+        expect(game).not_to receive(:puts).with(error_message)
+        game.get_input
+      end
+    end
+  end
 end
