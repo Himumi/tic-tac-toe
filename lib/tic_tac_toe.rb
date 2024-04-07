@@ -11,11 +11,15 @@ class Game
   def play
     puts "Tic Tac Toe Game"
     display
+<<<<<<< HEAD:tic_tac_toe.rb
     turn_player
   end
 
   def turn_player
     count = 1
+=======
+    puts "Please enter number between 1 - 9"
+>>>>>>> test:lib/tic_tac_toe.rb
     loop do
       index = get_input
       add_to_display(index, current_player(count))
@@ -53,7 +57,6 @@ class Game
   end
 
   def get_input
-    puts "Please enter number between 1 - 9"
     loop do
       index = gets.chomp.to_i - 1
       return index if valid_input(index) && !taken?(index)
@@ -93,5 +96,10 @@ class Game
   end
 end
 
+<<<<<<< HEAD:tic_tac_toe.rb
 game = Game.new
 game.play
+=======
+# game = Game.new
+# game.play
+>>>>>>> test:lib/tic_tac_toe.rb
