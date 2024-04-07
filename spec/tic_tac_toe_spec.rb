@@ -124,4 +124,16 @@ describe Game do
       end
     end
   end
+
+  describe '#full?' do
+    context 'when board is full' do
+      before do
+        board = game.instance_variable_get(:@board)
+        board.each_with_index { |item, index| board[index] = "x" } # fulfill all position
+      end
+      it 'returns true' do
+        expect(game).to be_full
+      end
+    end
+  end
 end
