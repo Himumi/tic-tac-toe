@@ -59,7 +59,7 @@ describe Game do
         game.add_to_display(position, player_mark)
       end
 
-      it 'adds into board' do
+      it 'added into board' do
         board = game.instance_variable_get(:@board)
         inputed_position = board[position]
         expect(inputed_position).to eq(player_mark)
