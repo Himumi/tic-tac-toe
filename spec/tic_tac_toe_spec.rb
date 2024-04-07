@@ -142,4 +142,17 @@ describe Game do
       end
     end
   end
+
+  describe '#draw' do
+    context 'when conditions are met' do
+      before do
+        allow(game).to receive(:won?).and_return(false)
+        allow(game).to receive(:full?).and_return(true)
+      end
+
+      it 'returns true' do
+        expect(game).to be_draw
+      end
+    end
+  end
 end
