@@ -117,5 +117,11 @@ describe Game do
         expect(game).to be_won
       end
     end
+
+    context 'when condition is not met' do
+      it 'returns false' do
+        expect(game).not_to be_won
+      end
+    end
   end
 end
