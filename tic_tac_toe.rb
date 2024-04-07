@@ -89,7 +89,7 @@ class Game
   end
 
   def message
-    won? ? "The winner is #{@winner}! Congratulations!!!" : "Game over!!!"
+    puts won? ? "The winner is #{@winner}! Congratulations!!!" : "Game over!!!"
   end
 end
 
