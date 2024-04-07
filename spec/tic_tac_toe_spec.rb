@@ -66,4 +66,15 @@ describe Game do
       end
     end
   end
+
+  describe '#current_player' do
+    context 'when current count is odd' do
+      it 'returns first player mark' do
+        first_player = game.instance_variable_get(:@first_player)
+        count = 5
+        result = game.current_player(count)
+        expect(result).to eq(first_player)
+      end
+    end
+  end
 end
