@@ -34,5 +34,19 @@ describe Game do
         game.get_input
       end
     end
+
+    context 'when user inputs invalid value' do
+      before do
+        invalid_value = "g"
+        valid_value = "5"
+        allow(game).to receive(:gets).and_return(invalid_value, valid_value)
+      end
+
+      it 'shows error message for once' do
+        error_message = "You Input wrong value. You have to input between 1 - 9."
+        expect(game).to receive(:puts).with(error_message).exactly(1).times
+        game.get_input
+      end
+    end
   end
 end
