@@ -3,6 +3,9 @@ require './lib/tic_tac_toe'
 describe Game do
   subject(:game) { described_class.new }
 
+  describe '#play' do
+    # do not need to be test
+  end
   describe '#valid_input' do
     context 'when user inputs valid value' do
       it 'returns true' do
