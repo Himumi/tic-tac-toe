@@ -154,5 +154,15 @@ describe Game do
         expect(game).to be_draw
       end
     end
+
+    context 'when conditions are not met' do
+      before do
+        allow(game).to receive(:won?).and_return(true) # when won condition is met
+      end
+
+      it 'returns false' do
+        expect(game).not_to be_draw
+      end
+    end
   end
 end
